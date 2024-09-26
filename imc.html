@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC - Nutrir e Saúde</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Nutrir e Saúde</h1>
+
+        <nav>
+
+            
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="saude.html">Saúde</a></li>
+                <li><a href="nutricao.html">Nutrição</a></li>
+                <li><a href="imc.html">IMC</a></li>
+                <li><a href="dietas.html">Dietas</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Índice de Massa Corporal (IMC)</h2>
+        <p>Calculadora de IMC e orientações.</p>
+        <p> descubra como anda o seu indice de massa corporal pois è muito importante saber se vc anda no seu peso ideal ,  assim poderà buscar uma dieta saudavel .</p>
+        <title>Calculadora de IMC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px;
+            width: 100%;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de IMC</h1>
+        <input type="number" id="altura" placeholder="Altura (em metros)">
+        <input type="number" id="peso" placeholder="Peso (em kg)">
+        <button onclick="calcularIMC()">Calcular IMC</button>
+        <div class="result" id="resultado"></div>
+    </div>
+
+    <script>
+        function calcularIMC() {
+            const altura = parseFloat(document.getElementById('altura').value);
+            const peso = parseFloat(document.getElementById('peso').value);
+            if (isNaN(altura) || isNaN(peso)) {
+                alert('Por favor, insira valores válidos.');
+                return;
+            }
+            const imc = peso / (altura * altura);
+            let classificacao = '';
+
+            if (imc < 18.5) {
+                classificacao = 'Abaixo do peso';
+            } else if (imc < 24.9) {
+                classificacao = 'Peso normal';
+            } else if (imc < 29.9) {
+                classificacao = 'Sobrepeso';
+            } else {
+                classificacao = 'Obesidade';
+            }
+
+            document.getElementById('resultado').innerText = `Seu IMC é ${imc.toFixed(2)} (${classificacao})`;
+        }
+    </script>
+    </main>
+    <footer>
+        <p>© 2024 Nutrir e Saúde. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
